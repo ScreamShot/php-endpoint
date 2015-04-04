@@ -2,16 +2,6 @@
 
 require_once('config.php');
 
-function curPageURL() {
-	$pageURL = 'https';
-	$pageURL .= "://";
-	if ($_SERVER["SERVER_PORT"] != "80")
-		$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"]. '/_' . $_SERVER["REQUEST_URI"];
-	else
-		$pageURL .= $_SERVER["SERVER_NAME"] . '/_' . $_SERVER["REQUEST_URI"];
-	return $pageURL;
-}
-
 function isAnimatedGif($filename) {
     return (bool)preg_match('#(\x00\x21\xF9\x04.{4}\x00\x2C.*){2,}#s', file_get_contents($filename));
 }
