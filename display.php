@@ -41,15 +41,21 @@ if (stripos($_SERVER['HTTP_USER_AGENT'], 'Twitterbot') !== false) {
 		<meta name="twitter:player:width" content="<?php echo $width; ?>">
 		<meta name="twitter:player:height" content="<?php echo $height; ?>">
 		<meta name="twitter:player:title" content="Image">
-		<meta name="twitter:player" content="https://j.ungeek.fr/<?php echo $f; ?>" />
+		<meta name="twitter:player" content="<?php echo BASE_URL . $f; ?>" />
 	<? }else{ ?>
 		<meta name="twitter:card" content="photo" />
-		<meta name="twitter:image" content="https://j.ungeek.fr/<?php echo $f; ?>" />
+		<meta name="twitter:image" content="<?php echo BASE_URL . $f; ?>" />
 	<?php } ?>
-		<?php } ?>
-		<meta name="twitter:site" content="@PunKeel" />
-		<meta name="twitter:title" content="Image">
-		<meta name="twitter:url" content="https://ungeek.fr/" />
+	<?php	} ?>
+	<?php if(defined('TWITTER_ACCOUNT')): ?>
+		<meta name="twitter:site" content="@<?php echo TWITTER_ACCOUNT; ?>" />
+	<?php endif; ?>
+	<?php if(defined('TWITTER_TITLE')): ?>
+		<meta name="twitter:title" content="<?php echo TWITTER_TITLE; ?>" />
+	<?php endif; ?>
+	<?php if(defined('TWITTER_URL')): ?>
+		<meta name="twitter:url" content="<?php echo TWITTER_URL; ?>" />
+	<?php endif; ?>
 	</head>
 	<body>
 		Hello, World.
