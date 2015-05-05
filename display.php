@@ -33,7 +33,11 @@ $mime = finfo_file($finfo, $f);
 finfo_close($finfo);
 $is_image = substr($mime, 0, 6) == 'image/';
 
-if (stripos($_SERVER['HTTP_USER_AGENT'], 'Twitterbot') === false || basename($filename) == basename($f)) {
+$ua = '';
+if(array_key_exists('HTTP_USER_AGENT', $_SERVER))
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+
+if (stripos($ua, 'bot') === false || basename($filename) == basename($f)) {
 	send_image($f, $is_image, $mime);
 }
 
