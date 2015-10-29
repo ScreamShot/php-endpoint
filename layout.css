@@ -29,6 +29,8 @@ html {
 
 body,html {
 	margin: 0;
+    overflow-x: hidden; 
+    overflow-y: auto;
 }
 
 html body {
@@ -54,12 +56,14 @@ header {
 
 .container {
 	padding-top: 50px;
-	padding-bottom: 15px;
+	padding-bottom: -5px;
 }
 
 .video-js {
 	margin: 0 auto 32px !important;
 	border-width: 1px;
+	max-height: calc(90vh - 115px);
+	width: auto;
 }
 
 .video-js.vjs-default-skin .vjs-control-bar {
