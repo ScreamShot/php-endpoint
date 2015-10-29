@@ -125,6 +125,7 @@ $is_image = substr($mime, 0, 6) == 'image/';
 $is_video = substr($mime, 0, 6) == 'video/';
 
 $ua = '';
+<<<<<<< HEAD
 if(array_key_exists('HTTP_USER_AGENT', $_SERVER)){
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 }
@@ -136,9 +137,49 @@ if(stripos($ua, 'bot') === false){
 		include('video.php');
 		die();
 	}
+=======
+if(array_key_exists('HTTP_USER_AGENT', $_SERVER))
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+
+if (stripos($ua, 'bot') === false || basename($filename) == basename($f)) {
+>>>>>>> 9fb4486a9ca9ed7b3165dec342f98f342729b777
 	send_image($f, $is_image, $mime);
 }
 
 // Twitter integration
 header('Vary: User-Agent');
+<<<<<<< HEAD
 include('twitter.php');
+=======
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<?php if($is_image): ?>
+		<?php if(isAnimatedGif($f)): ?>
+			<?php list($width, $height) = getimagesize($f); ?>
+		<meta name="twitter:card" content="player" />
+		<meta name="twitter:player:width" content="<?php echo $width; ?>">
+		<meta name="twitter:player:height" content="<?php echo $height; ?>">
+		<meta name="twitter:player:title" content="Image">
+		<meta name="twitter:player" content="<?php echo BASE_URL . basename($f); ?>" />
+		<? else: ?>
+		<meta name="twitter:card" content="photo" />
+		<meta name="twitter:image" content="<?php echo BASE_URL . basename($f); ?>" />
+		<?php endif; ?>
+	<?php endif; ?>
+	<?php if(defined('TWITTER_ACCOUNT')): ?>
+		<meta name="twitter:site" content="@<?php echo TWITTER_ACCOUNT; ?>" />
+	<?php endif; ?>
+	<?php if(defined('TWITTER_TITLE')): ?>
+		<meta name="twitter:title" content="<?php echo TWITTER_TITLE; ?>" />
+	<?php endif; ?>
+	<?php if(defined('TWITTER_URL')): ?>
+		<meta name="twitter:url" content="<?php echo TWITTER_URL; ?>" />
+	<?php endif; ?>
+	</head>
+	<body>
+		Hello, World.
+	</body>
+</html>
+>>>>>>> 9fb4486a9ca9ed7b3165dec342f98f342729b777

@@ -17,7 +17,7 @@ define('BASE_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARA
 define('TWITTER_ACCOUNT', 'PunKeel');
 
 // The message you want displayed under your images
-define('TWITTER_TITLE', 'Image');
+define('TWITTER_TITLE', 'Yo!');
 
 // Your main website url, displayed under the image
 define('TWITTER_URL', 'https://ungeek.fr/');
