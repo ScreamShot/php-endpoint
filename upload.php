@@ -20,5 +20,4 @@ $response['success'] = move_uploaded_file($_FILES['image']['tmp_name'], BASE_PAT
 
 $response['link'] =  BASE_URL . $uploadfile;
 
-
 echo json_encode($response);

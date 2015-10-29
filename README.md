@@ -9,3 +9,6 @@ You're done!
 
 # Twitter Integration
 To have your images displayed on Twitter, you have to validate your domain on [Twitter Cards Validator](https://cards-dev.twitter.com/validator). That's all. :-)
+
+# Video support
+Yay, it now has a video player :D
